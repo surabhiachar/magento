@@ -1,0 +1,37 @@
+
+type Query {    
+customeData:customeDataOutput @resolver(class:"Custom1\\Mymodule2\\Model\\Resolver\\Store") 
+@doc(description:"List of customeData.")
+}
+
+type customeDataOutput {
+total_count:Int     @doc(description: "total stores"),
+data:[customeData]  @doc(description: "customer data")
+}
+
+
+type customeData {
+firstname:String @doc(description:"firstname"),
+lastname:String @doc(description:"lastname"),
+email:String    @doc(description:"email"),
+telephone:String @doc(description:"telephone"),
+city:String     @doc(description:"city"),
+state:String    @doc(description:"state"),
+country:String  @doc(description:"country"),
+}
+
+type Mutation {
+    addDetails (input: detailsInput! @doc(description:"An input you have to fill")):
+    addDetailsOutput @resolver(class:"Custom1\\Mymodule2\\Model\\Resolver\\Status")
+    @doc(description:"Output of Mutation")
+}
+
+input detailsInput {
+    groupId:Int! @doc(description:"enter the groupid")
+    groupName:String! @doc(description:"enter the groupName")
+}
+
+type addDetailsOutput {
+    groupId:Int @doc(description:"status of mutation")
+    groupName:String @doc(description:"message of mutation")
+}

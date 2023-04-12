@@ -1,0 +1,19 @@
+<?xml version="1.0"?>
+
+<routes xmlns:xsi="http://www.w3.org/2001/XMLSchema-instance"
+        xsi:noNamespaceSchemaLocation="urn:magento:module:Magento_Webapi:etc/webapi.xsd">
+
+    <!-- test api Group -->
+    <route url="/V1/demoapi/name" method="GET">
+        <service class="Custom1\Mymodule2\Api\DemoInterface" method="getProfile"/>
+        <resources>
+            <resource ref="anonymous"/>
+        </resources>
+     </route>
+     <route url="/V1/demoapi/custgroup" method="POST">
+        <service class="Custom1\Mymodule2\Api\DemoInterface" method="setCustomerGroup"/>
+        <resources>
+            <resource ref="anonymous"/>
+        </resources>
+     </route>
+</routes>
